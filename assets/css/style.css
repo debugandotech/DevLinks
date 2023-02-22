@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: white;
+    --bg-url: url(../img/mobile_dark.jpg);
+    --stroke-color: rgba(255, 255, 255, .5);
+    --surface-color: rgba(255, 255, 255, .05);
+    --surface-color-hover: rgba(255, 255, 255, .02);
+    --highlight-color: rgba(255, 255, 255, .2);
+    --switch-bg-url: url(../img/moon-stars.svg)
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(../img/mobile_light.jpg);
+    --stroke-color: rgba(0, 0, 0, .5);
+    --surface-color: rgba(0, 0, 0, .06);
+    --surface-color-hover: rgba(0, 0, 0, .01);
+    --highlight-color: rgba(0, 0, 0, .1);
+    --switch-bg-url: url(../img/sun.svg)
+}
+
+body {
+    background: var(--bg-url);
+}
+
+body * {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0;
+    padding: 0 24px;
+}
+
+/* Perfil */
+.profile {
+    text-align: center;
+}
+
+.profile img {
+    width: 112px;
+}
+
+.profile p {
+    padding: 8px 0 10px 0;
+}
+
+/* Alterador */
+.switch {
+    position: relative;
+    width: 64px;
+    margin: 0 auto;
+    padding: 4px 0;
+}
+
+.switch button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 0;
+    background: white var(--switch-bg-url) no-repeat center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    transition: .5s;
+    animation: slide-on .5s;
+}
+
+.light .switch button {
+    animation: slide-in .5s forwards;
+}
+
+.switch button:hover{
+    outline: 8px solid var(--highlight-color);
+}
+
+.switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+
+/* Links */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 16px 24px;
+    font-weight: 300;
+}
+
+ul li button {
+    background: var(--surface-color);
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background .5s;
+}
+
+ul li button:hover {
+    background: var(--surface-color-hover);
+}
+
+/* Links Sociais */
+.social-links {
+    display: flex;
+    padding: 20px 0;
+    font-size: 20px;
+    justify-content: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 50%;
+    transition: background-color .5s;
+}
+
+.social-links a:hover {
+    background-color: var(--highlight-color);
+}
+
+/* Rodapé */
+.footer {
+    text-align: center;
+    font-size: 14px;
+}
+
+@media screen and (min-width: 360px) {
+    :root {
+        --bg-url: url(../img/desktop_dark.jpg);
+    }
+
+    .light {
+        --bg-url: url(../img/desktop_light.jpg);
+    }
+}
+
+/* Media queries = melhorando a responsividade */
+@media screen and (min-width: 1310px) {
+    body {
+        /*
+            background-image
+            background-repeat
+            background-position
+            background-size
+
+            Abreviar numa linha:
+            background: color image repeat position/size
+        */
+        background: var(--bg-url) no-repeat top center/cover;
+    }
+}
+
+/* Animações */
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-on {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
+}
