@@ -14,10 +14,10 @@ function toggleMode() {
   //subdtitui imagem
   if (html.classList.contains('light')) {
     //se tiver light mode, mantem imagem padrão
-    img.setAttribute('src', '../assets/img/profile-light.png')
+    img.setAttribute('src', 'assets/img/profile-light.png')
   } else {
     //se tiver sem light mode, muda para dark
-    img.setAttribute('src', '../assets/img/profile-dark.png')
+    img.setAttribute('src', 'assets/img/profile-dark.png')
   }
 
 
